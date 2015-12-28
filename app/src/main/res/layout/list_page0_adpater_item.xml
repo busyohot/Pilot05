@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff">
+
+<ImageView
+    android:id="@+id/thumb"
+    android:layout_width="80dp"
+    android:layout_height="80dp"
+    android:src="@drawable/image_loading"
+    android:padding="5dp"
+    android:background="#ffffff"/>
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:padding="5dp">
+
+        <TextView
+            android:id="@+id/subject"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="left"
+            android:text="SUBJECT"
+            android:textSize="20dp"
+            android:background="#ffffff"
+            android:textColor="#000000" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:gravity="left">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="DATE"
+                android:id="@+id/date"
+                android:textSize="15dp"
+                android:background="#ffffff" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text=" | 조회수 "
+                android:textSize="15dp"
+                android:id="@+id/textView3"
+                android:background="#ffffff" />
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="조회수"
+                    android:id="@+id/count"
+                android:textSize="15dp"
+                android:background="#ffffff"
+                android:gravity="left" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
