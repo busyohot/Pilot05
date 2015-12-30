@@ -16,6 +16,8 @@ import android.view.ViewGroup;
  */
 public class ViewPagerAdapter extends PagerAdapter {
 
+
+    //이수영 작성.
     /**
      * Context 객체
      */

@@ -16,7 +16,6 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.squareup.okhttp.OkHttpClient;
@@ -33,6 +32,7 @@ import java.util.ArrayList;
  * 뷰페이저에서 리스트를 보여주는 뷰
  */
 public class ListPage0 extends LinearLayout {
+    //정연호 작성
 
     Context mContext;
 
@@ -61,7 +61,7 @@ public class ListPage0 extends LinearLayout {
         init(context);
     }
 
-    private void init(Context context) {
+    private void init(Context context) { //ViewPagerAdapter 에서 넘어온 mContext
 
         //리스트뷰 애니메이션 선언 - 위에서 아래로 차례로 열리는 애니메이션
         AnimationSet set = new AnimationSet(true);
@@ -109,7 +109,7 @@ public class ListPage0 extends LinearLayout {
         btmanual.setTypeface(Typeface.DEFAULT);
         page=0;     //페이지 번호 0 - 빠른조치
 
-        Toast.makeText(mContext,"빠른조치 페이지",Toast.LENGTH_SHORT).show();  //선택한 페이지 안내 토스트
+        //Toast.makeText(mContext,"빠른조치 페이지",Toast.LENGTH_SHORT).show();  //선택한 페이지 안내 토스트
 
         //빠른조치 버튼
         btfast.setOnClickListener(new View.OnClickListener() {
@@ -126,7 +126,7 @@ public class ListPage0 extends LinearLayout {
                     btmanual.setTypeface(Typeface.DEFAULT);
                     page=0; //빠른조치 페이지 번호로 변경
                 }
-                Toast.makeText(mContext,"빠른조치 페이지",Toast.LENGTH_SHORT).show();
+                //Toast.makeText(mContext,"빠른조치 페이지",Toast.LENGTH_SHORT).show();
             }
         });
         btmanual.setOnClickListener(new View.OnClickListener() {
@@ -143,7 +143,7 @@ public class ListPage0 extends LinearLayout {
                     btmanual.setTypeface(Typeface.DEFAULT_BOLD);
                     page=1; //메뉴얼 페이지 번호로 변경
                 }
-                Toast.makeText(mContext, "메뉴얼 페이지", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(mContext, "메뉴얼 페이지", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -154,6 +154,8 @@ public class ListPage0 extends LinearLayout {
                 MainActivity.viewpager.setCurrentItem(1);   //뷰페이저 페이지를 0 에서 1로 이동 (1 페이지 - 상세설명 페이지)
                 ViewPage1.setTv3subject(listviewadapter.getSUBJECT(position));  //상세페이지화면으로 제목 넘김
                 ViewPage1.setTv3url(listviewadapter.getTHUMB_URL(position));    //상세페이지화면으로 이미지의 URL 넘김
+
+
             }
         });
     }
@@ -180,8 +182,6 @@ public class ListPage0 extends LinearLayout {
                 try {
                     JSONObject jsonObject = new JSONObject(result); //제이슨 오브젝트중
                     JSONArray jsonArray = jsonObject.optJSONArray("data");  //data 의 제이슨 어레이만 가져온다
-                    //JSONArray jsonArray = new JSONArray(result);
-                    //onPrintJson(new JSONArray(result));
                     onPrintJson(jsonObject.optJSONArray("data"));   //data의 제이슨 어레이를 추출하기위하여 넘김
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -193,9 +193,9 @@ public class ListPage0 extends LinearLayout {
 
         try {
             Gson gson = new Gson();         //GSON으로 JSON데이터 추출
-            data.clear();                   //기존 data 어레이 리스트를 초기화한다 (새로운 리스트를 불러오기위해 기존 데이터 삭제
+            data.clear();                   //기존 data 어레이 리스트를 초기화한다 (새로운 리스트를 불러오기위해 기존 데이터 삭제)
             for (int i = 0; i < jsonArray.length(); i++) {
-                ListPage0JsonData temp = gson.fromJson(jsonArray.get(i).toString(), ListPage0JsonData.class);
+                ListPage0JsonData temp = gson.fromJson(jsonArray.get(i).toString(), ListPage0JsonData.class);//temp 에 제이슨으로 추출할 데이터 형식을 담는다
                 jsdata = new ListPage0ViewItem(temp.getTHUMB_URL(),temp.getSUBJECT(),temp.getREG_DT(),temp.getVIEW_COUNT());
                 //추출한 데이터중  4개만 가져온다. 이미지url, 제목, 등록날짜, 조회수
 

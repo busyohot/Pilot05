@@ -11,29 +11,56 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:theme="@style/ThemeOverlay.AppCompat.Dark">
 <!--  android:background="@drawable/side_nav_bar"  -->
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="70dp"
-        android:layout_height="90dp"
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="bottom">
 
-        android:src="@drawable/we2" />
+        <ImageView
+            android:id="@+id/DimageView"
+            android:layout_width="82dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/we2"
+            android:gravity="bottom" />
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="bottom"
+            android:layout_marginLeft="5dp"
+            android:layout_marginBottom="5dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="정연호\nbusyo@nate.com"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                android:gravity="bottom"
+                android:id="@+id/DtextView1"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:height="10dp"/>
+            <TextView
+                android:id="@+id/DtextView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                android:text="이수영\nleesy_0305@naver.com"
+                android:gravity="bottom"
+                />
+        </LinearLayout>
+
+    </LinearLayout>
+
     <!--
     android:paddingTop="@dimen/nav_header_vertical_spacing"
     android:src="@android:drawable/sym_def_app_icon" -->
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-
-        android:text="정연호, 이수영"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
-<!--
+    <!--
  android:paddingTop="@dimen/nav_header_vertical_spacing"
 android:text="Android Studio" -->
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="busyo@nate.com, leesy_0305@naver.com" />
-<!-- android:text="android.studio@android.com" -->
+    <!-- android:text="android.studio@android.com" -->
 </LinearLayout>

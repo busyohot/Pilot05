@@ -12,6 +12,7 @@
     android:layout_height="80dp"
     android:src="@drawable/image_loading"
     android:padding="5dp"
+    android:scaleType="centerInside"
     android:background="#ffffff"/>
 
 

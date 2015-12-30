@@ -1,5 +1,7 @@
 package com.busyo.yeonho.pilot05;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -10,13 +12,18 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+    //이수영 작성.
+
     public static ViewPager viewpager = null; //viewpager 선언
-    public static ViewPagerAdapter viewpageradapter; //viewpger listviewadapter 선언
+    public static ViewPagerAdapter viewpageradapter; // viewpageradapter 선언
     private BackPressCloseHandler backPressCloseHandler; //뒤로가기 두번 눌러야 종료
 
     @Override
@@ -46,6 +53,44 @@ public class MainActivity extends AppCompatActivity
         viewpageradapter = new ViewPagerAdapter(this);
         viewpager.setAdapter(viewpageradapter);
         // 뷰페이저 객체를 참조하고 어댑터를 설정하는것 끝
+
+        ImageView div = (ImageView)findViewById(R.id.DimageView);
+        TextView dtv1 = (TextView)findViewById(R.id.DtextView1);
+        TextView dtv2 = (TextView)findViewById(R.id.DtextView2);
+
+
+
+        //네비게이션 드로어에서
+
+        //'쯔위'사진 누르면 네이버에 '쯔위'검색결과 페이지로 이동
+        div.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Uri weuri = Uri.parse("https://m.search.naver.com/search.naver?query=%EC%AF%94%EC%9C%84&where=m&sm=mtp_hty");
+                Intent weit  = new Intent(Intent.ACTION_VIEW,weuri);
+                startActivity(weit);
+            }
+        });
+
+        //정연호 텍스트뷰를 누르면 정연호 에게 메일보내기
+        dtv1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Uri mail1uri = Uri.parse("mailto:busyo@nate.com");
+                Intent mail1it  = new Intent(Intent.ACTION_SENDTO,mail1uri);
+                startActivity(mail1it);
+            }
+        });
+        //이수영 텍스트뷰를 누르면 이수영 에게 메일보내기
+        dtv2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Uri mail2uri = Uri.parse("mailto:leesy_0305@naver.com");
+                Intent mail2it  = new Intent(Intent.ACTION_SENDTO,mail2uri);
+                startActivity(mail2it);
+            }
+        });
+
     }
 
     //뒤로가기 버튼 누르기
@@ -77,12 +122,13 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item_page2 clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
+
         int id = item.getItemId();
-        //noinspection SimplifiableIfStatement
+        //오른쪽 위 메뉴 누르면 한샘모바일 페이지 이동
         if (id == R.id.action_settings) {
+            Uri hsuri = Uri.parse("http://hanssem.com/mmain/main.do");
+            Intent hsit  = new Intent(Intent.ACTION_VIEW,hsuri);
+            startActivity(hsit);
             return true;
         }
         return super.onOptionsItemSelected(item);
@@ -90,7 +136,7 @@ public class MainActivity extends AppCompatActivity
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
+    public boolean onNavigationItemSelected(MenuItem item) {//네비게이션 드로어에서 각각 항목을 선택하면 토스트 메세지 보여줌
         // Handle navigation view item_page2 clicks here.
         int id = item.getItemId();
 

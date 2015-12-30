@@ -4,9 +4,11 @@ package com.busyo.yeonho.pilot05;
  * Created by user on 2015-12-24.
  *
  * data 어레이 리스트에 담길 항목 정의
+ *
+ * 제이슨으로 추출한 4개의 항목들을 넘겨받아 data 어레이 리스트에 담길 항목을 정한다
  */
 public class ListPage0ViewItem {
-
+    //정연호 작성
     private String SUBJECT;
     private String THUMB_URL;
     private String REG_DT;

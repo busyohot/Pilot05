@@ -20,12 +20,22 @@
         android:id="@+id/view_page1text2"
         android:background="#979797" />
 
-    <ImageView
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/view_page1imageview1"
+        android:id="@+id/rl"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:padding="15dp">
 
-        android:background="#ffffff"
-        android:src="@drawable/image_loading"
-        android:padding="15dp" />
+        <uk.co.senab.photoview.PhotoView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/view_page1imageview1"
+            android:background="#ffffff"
+            android:layout_gravity="center"
+            android:layout_centerInParent="true"
+            android:scaleType="center" />
+    </RelativeLayout>
+
 </LinearLayout>

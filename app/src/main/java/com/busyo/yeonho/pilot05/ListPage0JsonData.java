@@ -6,7 +6,7 @@ package com.busyo.yeonho.pilot05;
  *
  */
 public class ListPage0JsonData {
-
+    //정연호 작성
     private String SUBJECT="";
     private String THUMB_URL="";
     private String REG_DT="";
@@ -45,7 +45,7 @@ public class ListPage0JsonData {
     }
 
     @Override
-    public String toString() {
+    public String toString() {//추출할 4개의 데이터 정의
         return "ListPage0JsonData{" +
                 "THUMB_URL=" + THUMB_URL +
                 ", SUBJECT='" + SUBJECT + '\'' +
